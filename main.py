@@ -62,8 +62,14 @@ def analyze_functions(directory):
     return function_details, todos
 
 def main():
-    directory_absolut_path = 'C:\\Your_project\\root\\src'
-    function_details, todos = analyze_functions(directory_absolut_path)
+    directory_absolute_path = 'C:\\Your_project\\root\\src'
+
+    # Check if the specified directory path exists
+    if not os.path.exists(directory_absolute_path):
+        print("The specified directory path does not exist:", directory_absolute_path)
+        return  # Exit the main function
+
+    function_details, todos = analyze_functions(directory_absolute_path)
 
     # subring which is removed before printing to console in order to save space
     directory_absolut_path_substring_to_remove = "C:\\Your_project\\"
